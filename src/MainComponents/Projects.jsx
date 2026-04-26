@@ -1,21 +1,30 @@
 import React, { useState } from 'react';
 import BubbleMenu from "../Components/BubbleMenu.jsx";
 import CircularGallery from "../Components/CircularGallery.jsx";
+import s11 from '../images/s11.jpeg'
+import s12 from '../images/s12.jpeg'
+import s13 from '../images/s13.jpeg'
+import s21 from '../images/s21.jpeg'
+import s22 from '../images/s22.jpeg'
+import s23 from '../images/s23.jpeg'
+import s31 from '../images/s31.jpeg'
+import s32 from '../images/s32.jpeg'
+import s33 from '../images/s33.jpeg'
 
 export default function Projects() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     
     // Example gallery items using placeholder images
     const galleryItems = [
-        { image: 'robosite_atestat/src/images/s11.jpeg', text: 'FTC Centerstage: \nfirst ever robot built' },
-        { image: 'src/images/s12.jpeg', text: 'FTC Centerstage: \ncompetition robot' },
-        { image: 'src/images/s13.jpeg', text: 'FTC Centerstage: \nregionals robot'},
-        { image: 'src/images/s21.jpeg', text: 'FTC Into the Deep: \nprototype robot' },
-        { image: 'src/images/s22.jpeg', text: 'FTC Into the Deep: \ncompetition robot' },
-        { image: 'src/images/s23.jpeg', text: 'FTC Into the Deep: \nregionals robot' },
-        { image: 'src/images/s31.jpeg', text: 'FTC Decode: \ncompetition robot' },
-        { image: 'src/images/s32.jpeg', text: 'FTC Decode: \nregionals robot' },
-        { image: 'src/images/s33.jpeg', text: 'FTC Decode: \nnationals robot' },
+        { image: s11, text: 'FTC Centerstage: \nfirst ever robot built' },
+        { image: s12, text: 'FTC Centerstage: \ncompetition robot' },
+        { image: s13, text: 'FTC Centerstage: \nregionals robot'},
+        { image: s21, text: 'FTC Into the Deep: \nprototype robot' },
+        { image: s22, text: 'FTC Into the Deep: \ncompetition robot' },
+        { image: s23, text: 'FTC Into the Deep: \nregionals robot' },
+        { image: s31, text: 'FTC Decode: \ncompetition robot' },
+        { image: s32, text: 'FTC Decode: \nregionals robot' },
+        { image: s33, text: 'FTC Decode: \nnationals robot' },
     ];
     const items = [
         {
