@@ -1,14 +1,11 @@
 import FaultyTerminal from '../Components/FaultyTerminal.jsx';
+import ASCIIText from "../Components/AsciiText.jsx";
 
 export default function Home(){
 
     return (
-        <>
-            <h1 style={{ color: 'white', position: 'relative', zIndex: 10 }}>
-                If you see this, React is working!
-            </h1>
-
-            <div className="backgroundContainer" style={{ width: '100vw', height: '100vh', position: 'absolute', zIndex: -1}}>
+        <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden' }}>
+            <div className="backgroundContainer" style={{ width: '100vw', height: '100vh', position: 'absolute', top: 0, left: 0, zIndex: -1}}>
                 <FaultyTerminal
                     scale={1.5}
                     gridMul={[2, 1]}
@@ -29,6 +26,14 @@ export default function Home(){
                     brightness={0.6}
                 />
             </div>
-        </>
+
+            <div style={{ position: 'absolute', top: '50%', left: '50%', zIndex: 1, width: '100vw', height:'100vh', transform: 'translate(-50%, -50%)', pointerEvents: 'none' }}>
+                <ASCIIText
+                    text="Roboti!"
+                    enableWaves={false}
+                    asciiFontSize={8}
+                />
+            </div>
+        </div>
     )
 }

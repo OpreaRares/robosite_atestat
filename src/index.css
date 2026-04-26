@@ -2,7 +2,7 @@ body {
     margin: 0;
     font-family: "Outfit", sans-serif;
     color: rgb(0, 0, 0);
-    background: rgba(237, 47, 231, 0.588);
+    background: #000;
     overflow: hidden;
 }
 
