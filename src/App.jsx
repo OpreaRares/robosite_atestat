@@ -5,7 +5,7 @@ import Contact from './MainComponents/Contact.jsx';
 
 function App() {
     return (
-        <Router>
+        <Router basename="/robosite_atestat">
                 <div style={{ position: 'relative', zIndex: 1 }}>
                     <Routes>
                         <Route path="/" element={<Home />} />
