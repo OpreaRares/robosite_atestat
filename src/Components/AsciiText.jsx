@@ -111,6 +111,8 @@ class AsciiFilter {
         this.pre.style.transform = 'translate(-50%, -50%)';
         this.pre.style.zIndex = '9';
         this.pre.style.backgroundAttachment = 'fixed';
+        this.pre.style.display = 'block';
+        this.pre.style.width = 'max-content';
     }
 
     render(scene, camera) {
@@ -164,14 +166,17 @@ class AsciiFilter {
                         continue;
                     }
 
+                    // For text with transparency, we should consider alpha too.
+                    // If it's a "!" and very thin, maybe some pixels have low alpha.
                     let gray = (0.3 * r + 0.6 * g + 0.1 * b) / 255;
-                    // For dark backgrounds, we want higher gray values to map to "heavier" characters.
-                    // If the original charset is '@%#*+=-:. ', then @ is heavy, space is light.
-                    // gray near 1 (white) should be @, gray near 0 (black) should be . or space.
-                    // But in our case, the text is white (#fdf9f3) and background is transparent.
-                    // So we want white to be '@'.
                     
+                    // Boost visibility for thin characters by considering any non-zero alpha as significant
+                    // especially if the character is otherwise very light.
+                    let alphaWeight = a / 255.0;
+                    gray = gray * alphaWeight;
+
                     gray = Math.max(0, Math.min(1, gray));
+                    // Invert mapping: white (gray=1) -> heavy char (index 0), black/transp (gray=0) -> light char
                     let idx = Math.floor((1.0 - gray) * (this.charset.length - 1));
                     str += this.charset[idx];
                 }
@@ -202,8 +207,8 @@ class CanvasTxt {
         this.context.font = this.font;
         const metrics = this.context.measureText(this.txt);
 
-        const textWidth = Math.ceil(metrics.width) + 20;
-        const textHeight = Math.ceil(metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent) + 20;
+        const textWidth = Math.ceil(metrics.width) + 40;
+        const textHeight = Math.ceil(metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent) + 40;
 
         this.canvas.width = textWidth;
         this.canvas.height = textHeight;
@@ -215,9 +220,9 @@ class CanvasTxt {
         this.context.font = this.font;
 
         const metrics = this.context.measureText(this.txt);
-        const yPos = 10 + metrics.actualBoundingBoxAscent;
+        const yPos = 20 + metrics.actualBoundingBoxAscent;
 
-        this.context.fillText(this.txt, 10, yPos);
+        this.context.fillText(this.txt, 20, yPos);
     }
 
     get width() {
@@ -556,6 +561,8 @@ export default function ASCIIText({
           -webkit-text-fill-color: transparent;
           -webkit-background-clip: text;
           z-index: 9;
+          display: block;
+          width: max-content;
         }
       `}</style>
         </div>
