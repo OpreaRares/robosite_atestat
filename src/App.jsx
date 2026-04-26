@@ -1,11 +1,11 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Home from './MainComponents/Home.jsx';
 import Projects from './MainComponents/Projects.jsx';
 import Contact from './MainComponents/Contact.jsx';
 
 function App() {
     return (
-        <Router basename="/robosite_atestat">
+        <Router>
                 <div style={{ position: 'relative', zIndex: 1 }}>
                     <Routes>
                         <Route path="/" element={<Home />} />
