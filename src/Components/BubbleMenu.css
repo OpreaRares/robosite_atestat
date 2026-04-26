@@ -11,6 +11,12 @@
     z-index: 99;
 }
 
+@media (max-width: 767px) and (orientation: portrait) {
+    .bubble-menu {
+        top: 1em;
+    }
+}
+
 @media (min-width: 768px) {
     .bubble-menu {
         padding: 0 2em;
@@ -26,7 +32,7 @@
 }
 
 .bubble-menu .bubble {
-    --bubble-size: 48px;
+    --bubble-size: 40px;
     width: var(--bubble-size);
     height: var(--bubble-size);
     border-radius: 50%;
@@ -36,6 +42,12 @@
     justify-content: center;
     pointer-events: auto;
     background: #2d2d2d;
+}
+
+@media (min-width: 768px) {
+    .bubble-menu .bubble {
+        --bubble-size: 48px;
+    }
 }
 
 .bubble-menu .logo-bubble,
@@ -126,17 +138,19 @@
 }
 
 .bubble-menu-items {
-    position: absolute;
+    position: fixed;
     inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     pointer-events: none;
-    z-index: 98;
+    z-index: 9999;
     background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     transition: opacity 0.3s ease, backdrop-filter 0.3s ease;
+    width: 100vw;
+    height: 100vh;
 }
 
 .bubble-menu-items.fixed {
@@ -161,6 +175,22 @@
     margin-right: auto;
     pointer-events: auto;
     justify-content: stretch;
+    box-sizing: border-box;
+}
+
+@media (max-width: 899px) {
+    .bubble-menu-items .pill-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .bubble-menu-items .pill-list .pill-col {
+        flex: 0 0 auto;
+        width: 80%;
+        max-width: 300px;
+        margin-left: 0 !important;
+    }
 }
 
 .bubble-menu-items .pill-list .pill-spacer {
@@ -175,7 +205,7 @@
     align-items: stretch;
     flex: 0 0 calc(100% / 3);
     box-sizing: border-box;
-    padding: 0 4px;
+    padding: 10px;
 }
 
 .bubble-menu-items .pill-list .pill-col:nth-child(4):nth-last-child(2) {
@@ -191,15 +221,15 @@
     --pill-color: #A7EF9E;
     --pill-border: rgba(0, 0, 0, 0.12);
     --item-rot: 0deg;
-    --pill-min-h: 160px;
+    --pill-min-h: 120px;
     --hover-bg: #A7EF9E;
     --hover-color: #000;
     width: 100%;
     min-height: var(--pill-min-h);
-    padding: clamp(1.5rem, 3vw, 8rem) 0;
-    font-size: clamp(1.5rem, 4vw, 4rem);
+    padding: clamp(1rem, 2vw, 4rem) 20px;
+    font-size: clamp(1.2rem, 4vw, 3rem);
     font-weight: 400;
-    line-height: 0;
+    line-height: 1;
     border-radius: 999px;
     background: var(--pill-bg);
     color: var(--pill-color);
@@ -215,9 +245,18 @@
             transform 0.3s ease;
     will-change: transform;
     box-sizing: border-box;
-    white-space: nowrap;
+    white-space: normal;
+    text-align: center;
     overflow: hidden;
     height: auto;
+}
+
+@media (min-width: 768px) {
+    .bubble-menu-items .pill-link {
+        --pill-min-h: 160px;
+        padding: clamp(1.5rem, 3vw, 8rem) 20px;
+        font-size: clamp(1.5rem, 4vw, 4rem);
+    }
 }
 
 @media (min-width: 900px) {

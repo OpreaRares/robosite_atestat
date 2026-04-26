@@ -28,15 +28,23 @@ export default function Contact() {
     ];
 
     return (
-        <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden', background: '#000', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <h1 style={{ 
-                color: '#A7EF9E', 
-                fontSize: 'clamp(2rem, 10vw, 4rem)',
-                textAlign: 'center',
-                padding: '0 1rem'
-            }}>Contact Page</h1>
+        <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden', background: '#000' }}>
+            <div style={{ 
+                position: 'absolute', 
+                top: window.innerHeight > window.innerWidth ? '1em' : '2em', 
+                left: '1em', 
+                zIndex: 5,
+                pointerEvents: 'none'
+            }}>
+                <h1 style={{ 
+                    color: '#A7EF9E', 
+                    fontSize: 'clamp(2rem, 10vw, 4rem)',
+                    margin: 0,
+                    lineHeight: 1
+                }}>Contact</h1>
+            </div>
             
-            <div style={{ position: 'absolute', top: 0, left: 0, zIndex: 10, width: '100vw', height:'100vh', pointerEvents: 'none' }}>
+            <div style={{ position: 'absolute', top: 0, left: 0, zIndex: 10, width: '100vw', height: window.innerHeight > window.innerWidth ? '80px' : '100px', pointerEvents: 'none' }}>
                 <BubbleMenu
                     logo={<span style={{ fontWeight: 700, color: '#A7EF9E' }}>RB</span>}
                     items={items}

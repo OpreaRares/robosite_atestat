@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { gsap } from 'gsap';
 import { Link } from 'react-router-dom';
 
@@ -195,10 +196,10 @@ export default function BubbleMenu({
                     <span className="menu-line" style={{ background: menuContentColor }} />
                 </button>
             </nav>
-            {showOverlay && (
+            {showOverlay && createPortal(
                 <div
                     ref={overlayRef}
-                    className={`bubble-menu-items ${useFixedPosition ? 'fixed' : 'absolute'}`}
+                    className="bubble-menu-items"
                     aria-hidden={!isMenuOpen}
                     style={{ 
                         pointerEvents: isMenuOpen ? 'auto' : 'none',
@@ -242,7 +243,8 @@ export default function BubbleMenu({
                             </li>
                         ))}
                     </ul>
-                </div>
+                </div>,
+                document.body
             )}
         </>
     );

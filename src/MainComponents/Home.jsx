@@ -87,12 +87,12 @@ export default function Home(){
                 <ASCIIText
                     text="Robots!"
                     enableWaves={false}
-                    asciiFontSize={window.innerWidth < 768 ? 5 : 10}
-                    planeBaseHeight={window.innerWidth < 768 ? 8 : 8}
+                    asciiFontSize={window.innerWidth < 768 ? (window.innerHeight > window.innerWidth ? 4 : 5) : 9}
+                    planeBaseHeight={window.innerWidth < 768 ? (window.innerHeight > window.innerWidth ? 6 : 8) : 8}
                 />
             </div>
 
-            <div style={{ position: 'absolute', top: 0, left: 0, zIndex: 10, width: '100vw', height:'100vh', pointerEvents: 'none' }}>
+            <div style={{ position: 'absolute', top: 0, left: 0, zIndex: 10, width: '100vw', height: window.innerHeight > window.innerWidth ? '80px' : '100px', pointerEvents: 'none' }}>
                 <BubbleMenu
                     logo={<span style={{ fontWeight: 700, color: '#A7EF9E' }}>RB</span>}
                     items={items}

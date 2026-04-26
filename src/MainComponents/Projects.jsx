@@ -65,21 +65,21 @@ export default function Projects() {
 
             <div style={{ 
                 position: 'absolute', 
-                top: '50%', 
-                left: '50%', 
+                top: window.innerHeight > window.innerWidth ? '1em' : '2em', 
+                left: '1em', 
                 zIndex: 5,
-                pointerEvents: 'none',
-                transform: 'translate(-50%, -50%)'
+                pointerEvents: 'none'
             }}>
                 <h1 style={{ 
                     color: '#A7EF9E', 
                     fontSize: 'clamp(2rem, 10vw, 5rem)', 
                     margin: 0, 
+                    lineHeight: 1,
                     textShadow: '0 0 10px rgba(167, 239, 158, 0.5)' 
                 }}>Projects</h1>
             </div>
             
-            <div style={{ position: 'absolute', top: 0, left: 0, zIndex: 10, width: '100vw', height:'100vh', pointerEvents: 'none' }}>
+            <div style={{ position: 'absolute', top: 0, left: 0, zIndex: 10, width: '100vw', height: window.innerHeight > window.innerWidth ? '80px' : '100px', pointerEvents: 'none' }}>
                 <BubbleMenu
                     logo={<span style={{ fontWeight: 700, color: '#A7EF9E' }}>RB</span>}
                     items={items}

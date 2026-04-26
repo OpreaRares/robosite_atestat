@@ -291,8 +291,10 @@ class Media {
       }
     }
     this.scale = this.screen.height / 1500;
-    this.plane.scale.y = (this.viewport.height * (900 * this.scale)) / this.screen.height;
-    this.plane.scale.x = (this.viewport.width * (700 * this.scale)) / this.screen.width;
+    const isPortrait = this.screen.height > this.screen.width;
+    const sizeMultiplier = isPortrait ? 0.6 : 1.0;
+    this.plane.scale.y = (this.viewport.height * (900 * this.scale * sizeMultiplier)) / this.screen.height;
+    this.plane.scale.x = (this.viewport.width * (700 * this.scale * sizeMultiplier)) / this.screen.width;
     this.plane.program.uniforms.uPlaneSizes.value = [this.plane.scale.x, this.plane.scale.y];
     this.padding = 2;
     this.width = this.plane.scale.x + this.padding;
