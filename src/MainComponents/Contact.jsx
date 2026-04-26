@@ -32,7 +32,7 @@ export default function Contact() {
             <div style={{ 
                 position: 'absolute', 
                 top: window.innerHeight > window.innerWidth ? '1em' : '2em', 
-                left: '1em', 
+                left: window.innerWidth < 768 ? '1em' : '2em', 
                 zIndex: 5,
                 pointerEvents: 'none'
             }}>
@@ -40,7 +40,8 @@ export default function Contact() {
                     color: '#A7EF9E', 
                     fontSize: 'clamp(2rem, 10vw, 4rem)',
                     margin: 0,
-                    lineHeight: 1
+                    lineHeight: 1,
+                    padding: '0.25em 0'
                 }}>Contact</h1>
             </div>
             

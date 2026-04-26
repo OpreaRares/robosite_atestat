@@ -66,7 +66,7 @@ export default function Projects() {
             <div style={{ 
                 position: 'absolute', 
                 top: window.innerHeight > window.innerWidth ? '1em' : '2em', 
-                left: '1em', 
+                left: window.innerWidth < 768 ? '1em' : '2em', 
                 zIndex: 5,
                 pointerEvents: 'none'
             }}>
@@ -75,7 +75,8 @@ export default function Projects() {
                     fontSize: 'clamp(2rem, 10vw, 5rem)', 
                     margin: 0, 
                     lineHeight: 1,
-                    textShadow: '0 0 10px rgba(167, 239, 158, 0.5)' 
+                    textShadow: '0 0 10px rgba(167, 239, 158, 0.5)',
+                    padding: '0.25em 0'
                 }}>Projects</h1>
             </div>
             
