@@ -1,23 +1,22 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-
-createRoot(document.getElementById('root')).render(
-    <StrictMode>
-        <App />
-    </StrictMode>,
-)
-
+import Home from './MainComponents/Home.jsx';
 
 function App() {
     return (
         <Router>
-            <Routes>
-                {/* Note the use of 'element' and the JSX syntax <Home /> */}
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-            </Routes>
+            {/* Background container */}
+            <div style={{ width: '100%', height: '100vh', position: 'relative' }}>
+
+                {/* Your Routes/Content */}
+                <div style={{ position: 'relative', zIndex: 1 }}>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                    </Routes>
+                </div>
+
+            </div>
         </Router>
     );
 }
+
+export default App;
