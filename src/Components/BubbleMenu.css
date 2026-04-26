@@ -6,9 +6,15 @@
     align-items: center;
     justify-content: flex-end;
     gap: 16px;
-    padding: 0 2em;
+    padding: 0 1em;
     pointer-events: none;
     z-index: 99;
+}
+
+@media (min-width: 768px) {
+    .bubble-menu {
+        padding: 0 2em;
+    }
 }
 
 .bubble-menu.fixed {
@@ -169,6 +175,7 @@
     align-items: stretch;
     flex: 0 0 calc(100% / 3);
     box-sizing: border-box;
+    padding: 0 4px;
 }
 
 .bubble-menu-items .pill-list .pill-col:nth-child(4):nth-last-child(2) {

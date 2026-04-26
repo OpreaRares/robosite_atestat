@@ -72,6 +72,10 @@ class AsciiFilter {
         this.fontFamily = fontFamily ?? "'Courier New', monospace";
         this.charset = charset ?? '@%#*+=-:. ';
 
+        this.pre.style.whiteSpace = 'pre';
+        this.pre.style.width = 'max-content';
+        this.pre.style.margin = '0 auto';
+        
         this.context.webkitImageSmoothingEnabled = false;
         this.context.mozImageSmoothingEnabled = false;
         this.context.msImageSmoothingEnabled = false;
@@ -92,16 +96,20 @@ class AsciiFilter {
     }
 
     reset() {
-        this.context.font = `${this.fontSize}px ${this.fontFamily}`;
+        // Adjust font size for mobile
+        const isMobile = window.innerWidth < 768;
+        const currentFontSize = isMobile ? Math.max(6, this.fontSize * 0.6) : this.fontSize;
+
+        this.context.font = `${currentFontSize}px ${this.fontFamily}`;
         const charWidth = this.context.measureText('A').width;
 
-        this.cols = Math.floor(this.width / (this.fontSize * (charWidth / this.fontSize)));
-        this.rows = Math.floor(this.height / this.fontSize);
+        this.cols = Math.floor(this.width / (currentFontSize * (charWidth / currentFontSize)));
+        this.rows = Math.floor(this.height / currentFontSize);
 
         this.canvas.width = this.cols;
         this.canvas.height = this.rows;
         this.pre.style.fontFamily = this.fontFamily;
-        this.pre.style.fontSize = `${this.fontSize}px`;
+        this.pre.style.fontSize = `${currentFontSize}px`;
         this.pre.style.margin = '0';
         this.pre.style.padding = '0';
         this.pre.style.lineHeight = '1em';
@@ -166,18 +174,15 @@ class AsciiFilter {
                         continue;
                     }
 
-                    // For text with transparency, we should consider alpha too.
-                    // If it's a "!" and very thin, maybe some pixels have low alpha.
                     let gray = (0.3 * r + 0.6 * g + 0.1 * b) / 255;
-                    
-                    // Boost visibility for thin characters by considering any non-zero alpha as significant
-                    // especially if the character is otherwise very light.
                     let alphaWeight = a / 255.0;
+                    
                     gray = gray * alphaWeight;
 
                     gray = Math.max(0, Math.min(1, gray));
                     // Invert mapping: white (gray=1) -> heavy char (index 0), black/transp (gray=0) -> light char
                     let idx = Math.floor((1.0 - gray) * (this.charset.length - 1));
+                    
                     str += this.charset[idx];
                 }
                 str += '\n';
@@ -278,8 +283,11 @@ class CanvAscii {
     }
 
     setMesh() {
+        const isMobile = window.innerWidth < 768;
+        const currentTextFontSize = isMobile ? this.textFontSize * 0.5 : this.textFontSize;
+
         this.textCanvas = new CanvasTxt(this.textString, {
-            fontSize: this.textFontSize,
+            fontSize: currentTextFontSize,
             fontFamily: 'IBM Plex Mono',
             color: this.textColor
         });

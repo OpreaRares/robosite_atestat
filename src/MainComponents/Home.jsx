@@ -79,12 +79,16 @@ export default function Home(){
                 width: '100vw', 
                 height:'100vh', 
                 transform: 'translate(-50%, -50%)', 
-                pointerEvents: 'none'
+                pointerEvents: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
             }}>
                 <ASCIIText
                     text="Robots!"
                     enableWaves={false}
-                    asciiFontSize={8}
+                    asciiFontSize={window.innerWidth < 768 ? 5 : 10}
+                    planeBaseHeight={window.innerWidth < 768 ? 8 : 8}
                 />
             </div>
 

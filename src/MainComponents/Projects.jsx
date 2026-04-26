@@ -63,19 +63,20 @@ export default function Projects() {
                 />
             </div>
 
-            {/* Content Overlay */}
             <div style={{ 
                 position: 'absolute', 
-                top: '2em', 
+                top: '50%', 
                 left: '50%', 
-                transform: 'translateX(-50%)', 
                 zIndex: 5,
                 pointerEvents: 'none',
-                height: '48px', // Matching --bubble-size in BubbleMenu.css
-                display: 'flex',
-                alignItems: 'center'
+                transform: 'translate(-50%, -50%)'
             }}>
-                <h1 style={{ color: '#A7EF9E', fontSize: '2.5rem', margin: 0, textShadow: '0 0 10px rgba(167, 239, 158, 0.5)' }}>Projects</h1>
+                <h1 style={{ 
+                    color: '#A7EF9E', 
+                    fontSize: 'clamp(2rem, 10vw, 5rem)', 
+                    margin: 0, 
+                    textShadow: '0 0 10px rgba(167, 239, 158, 0.5)' 
+                }}>Projects</h1>
             </div>
             
             <div style={{ position: 'absolute', top: 0, left: 0, zIndex: 10, width: '100vw', height:'100vh', pointerEvents: 'none' }}>
