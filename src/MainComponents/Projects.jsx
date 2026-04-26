@@ -7,7 +7,7 @@ export default function Projects() {
     
     // Example gallery items using placeholder images
     const galleryItems = [
-        { image: '/robosite_atestat/src/images/s11.jpeg', text: 'FTC Centerstage: \nfirst ever robot built' },
+        { image: 'robosite_atestat/src/images/s11.jpeg', text: 'FTC Centerstage: \nfirst ever robot built' },
         { image: 'src/images/s12.jpeg', text: 'FTC Centerstage: \ncompetition robot' },
         { image: 'src/images/s13.jpeg', text: 'FTC Centerstage: \nregionals robot'},
         { image: 'src/images/s21.jpeg', text: 'FTC Into the Deep: \nprototype robot' },
