@@ -53,7 +53,7 @@ export default function Projects() {
     return (
         <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden', background: '#000' }}>
             {/* Gallery Container */}
-            <div style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }}>
+            <div style={{ width: '100%', height: '100%', position: 'absolute', top: '-10%', left: 0 }}>
                 <CircularGallery 
                     items={galleryItems} 
                     bend={3} 
@@ -72,7 +72,7 @@ export default function Projects() {
             }}>
                 <h1 style={{ 
                     color: '#A7EF9E', 
-                    fontSize: 'clamp(2rem, 10vw, 5rem)', 
+                    fontSize: 'clamp(1.5rem, 8vw, 4rem)', 
                     margin: 0, 
                     lineHeight: 1,
                     textShadow: '0 0 10px rgba(167, 239, 158, 0.5)',
@@ -80,20 +80,18 @@ export default function Projects() {
                 }}>Projects</h1>
             </div>
             
-            <div style={{ position: 'absolute', top: 0, left: 0, zIndex: 10, width: '100vw', height: window.innerHeight > window.innerWidth ? '80px' : '100px', pointerEvents: 'none' }}>
-                <BubbleMenu
-                    logo={<span style={{ fontWeight: 700, color: '#A7EF9E' }}>RB</span>}
-                    items={items}
-                    onMenuClick={setIsMenuOpen}
-                    menuAriaLabel="Toggle navigation"
-                    menuBg="#2d2d2d"
-                    menuContentColor="#A7EF9E"
-                    useFixedPosition={false}
-                    animationEase="power3.out"
-                    animationDuration={0.3}
-                    staggerDelay={0.1}
-                />
-            </div>
+            <BubbleMenu
+                logo={<span style={{ fontWeight: 700, color: '#A7EF9E' }}>RB</span>}
+                items={items}
+                onMenuClick={setIsMenuOpen}
+                menuAriaLabel="Toggle navigation"
+                menuBg="#2d2d2d"
+                menuContentColor="#A7EF9E"
+                useFixedPosition={true}
+                animationEase="power3.out"
+                animationDuration={0.3}
+                staggerDelay={0.1}
+            />
         </div>
     );
 }

@@ -183,19 +183,22 @@ export default function BubbleMenu({
 
     return (
         <>
-            <nav className={containerClassName} style={{ ...style, pointerEvents: 'none' }} aria-label="Main navigation">
-                <button
-                    type="button"
-                    className={`bubble toggle-bubble menu-btn ${isMenuOpen ? 'open' : ''}`}
-                    onClick={handleToggle}
-                    aria-label={menuAriaLabel}
-                    aria-pressed={isMenuOpen}
-                    style={{ background: menuBg, pointerEvents: 'auto' }}
-                >
-                    <span className="menu-line" style={{ background: menuContentColor }} />
-                    <span className="menu-line" style={{ background: menuContentColor }} />
-                </button>
-            </nav>
+            {createPortal(
+                <nav className={containerClassName} style={{ ...style, pointerEvents: 'none' }} aria-label="Main navigation">
+                    <button
+                        type="button"
+                        className={`bubble toggle-bubble menu-btn ${isMenuOpen ? 'open' : ''}`}
+                        onClick={handleToggle}
+                        aria-label={menuAriaLabel}
+                        aria-pressed={isMenuOpen}
+                        style={{ background: menuBg, pointerEvents: 'auto', zIndex: 20001 }}
+                    >
+                        <span className="menu-line" style={{ background: menuContentColor }} />
+                        <span className="menu-line" style={{ background: menuContentColor }} />
+                    </button>
+                </nav>,
+                document.body
+            )}
             {showOverlay && createPortal(
                 <div
                     ref={overlayRef}

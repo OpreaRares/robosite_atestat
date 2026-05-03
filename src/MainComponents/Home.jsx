@@ -92,20 +92,18 @@ export default function Home(){
                 />
             </div>
 
-            <div style={{ position: 'absolute', top: 0, left: 0, zIndex: 10, width: '100vw', height: window.innerHeight > window.innerWidth ? '80px' : '100px', pointerEvents: 'none' }}>
-                <BubbleMenu
-                    logo={<span style={{ fontWeight: 700, color: '#A7EF9E' }}>RB</span>}
-                    items={items}
-                    onMenuClick={setIsMenuOpen}
-                    menuAriaLabel="Toggle navigation"
-                    menuBg="#2d2d2d"
-                    menuContentColor="#A7EF9E"
-                    useFixedPosition={false}
-                    animationEase="power3.out"
-                    animationDuration={0.3}
-                    staggerDelay={0.1}
-                />
-            </div>
+            <BubbleMenu
+                logo={<span style={{ fontWeight: 700, color: '#A7EF9E' }}>RB</span>}
+                items={items}
+                onMenuClick={setIsMenuOpen}
+                menuAriaLabel="Toggle navigation"
+                menuBg="#2d2d2d"
+                menuContentColor="#A7EF9E"
+                useFixedPosition={true}
+                animationEase="power3.out"
+                animationDuration={0.3}
+                staggerDelay={0.1}
+            />
         </div>
     )
 }
