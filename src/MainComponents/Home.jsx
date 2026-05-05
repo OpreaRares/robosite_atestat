@@ -85,10 +85,10 @@ export default function Home(){
                 justifyContent: 'center'
             }}>
                 <ASCIIText
-                    text="Robots!"
+                    text="Robots"
                     enableWaves={false}
-                    asciiFontSize={window.innerWidth < 768 ? (window.innerHeight > window.innerWidth ? 4 : 5) : 9}
-                    planeBaseHeight={window.innerWidth < 768 ? (window.innerHeight > window.innerWidth ? 6 : 8) : 8}
+                    asciiFontSize={window.innerWidth < 750 ? (window.innerHeight > window.innerWidth ? 4 : 5) : 9}
+                    planeBaseHeight={window.innerWidth < 750 ? (window.innerHeight > window.innerWidth ? 6 : 8) : 8}
                 />
             </div>
 

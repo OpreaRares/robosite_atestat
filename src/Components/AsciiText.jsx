@@ -429,10 +429,10 @@ class CanvAscii {
 export default function ASCIIText({
                                       text = 'Robots!',
                                       asciiFontSize = 1,
-                                      textFontSize = 200,
+                                      textFontSize = 160,
                                       textColor = '#fdf9f3',
                                       planeBaseHeight = 8,
-                                      enableWaves = false
+                                      enableWaves = true
                                   }) {
     const containerRef = useRef(null);
     const asciiRef = useRef(null);
